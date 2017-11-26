@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Accessibility as Html
-import ArabicHtml exposing (..)
+import ArabicHtml exposing (helloWorld)
 import Color
 import Css
 import Css.Colors
@@ -30,14 +30,6 @@ view model =
         [ accessibleHtml
         , styleElements
         , elmCss
-        ]
-
-
-helloWorld : Html.Html msg
-helloWorld =
-    a_إنجليزي
-        [ a_إنجليزي [ Html.text "اهلاً" ]
-        , a_عربي [ Html.text ", world!" ]
         ]
 
 

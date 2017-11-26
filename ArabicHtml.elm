@@ -1,7 +1,17 @@
-module ArabicHtml exposing (a_إنجليزي, a_عربي)
+module ArabicHtml exposing (helloWorld)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+
+
+{-| say hello, world.
+-}
+helloWorld : Html.Html msg
+helloWorld =
+    a_إنجليزي
+        [ a_إنجليزي [ text "اهلاً" ]
+        , a_عربي [ text ", world!" ]
+        ]
 
 
 {-| Helper for writing forced-direction text (`ltr`)
