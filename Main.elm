@@ -7,11 +7,11 @@ import Css
 import Css.Colors
 import Element
 import Element.Attributes
+import Html.Attributes
 import Html.Styled
 import Html.Styled.Attributes
 import Style
 import Style.Color
-import Style.Font
 
 
 main : Program Never () msg
@@ -25,15 +25,42 @@ main =
 
 view : a -> Html.Html msg
 view model =
-    Html.h1 []
-        [ a_إنجليزي
-            [ a_إنجليزي [ Html.text "اهلاً" ]
-            , a_عربي [ Html.text ", world!" ]
-            ]
-        , Element.layout elementStyleSheet <|
-            Element.el Header [ Element.Attributes.alignLeft ] (Element.text "Hello World!")
-        , Html.Styled.toUnstyled logo
+    Html.div []
+        [ accessibleHtml
+        , styleElements
+        , elmCss
         ]
+
+
+helloWorld : Html.Html msg
+helloWorld =
+    a_إنجليزي
+        [ a_إنجليزي [ Html.text "اهلاً" ]
+        , a_عربي [ Html.text ", world!" ]
+        ]
+
+
+
+--ACCESSIBLE HTML
+
+
+accessibleHtml : Html.Html msg
+accessibleHtml =
+    Html.section []
+        [ Html.h1
+            [ Html.Attributes.style [ ( "color", "blue" ) ] ]
+            [ helloWorld ]
+        ]
+
+
+
+--STYLE ELEMENTS
+
+
+styleElements : Html.Html msg
+styleElements =
+    Element.layout elementStyleSheet <|
+        Element.el Header [ Element.Attributes.alignLeft ] (Element.text "Hello World!")
 
 
 type Styles
@@ -44,28 +71,20 @@ elementStyleSheet : Style.StyleSheet Styles variation
 elementStyleSheet =
     Style.styleSheet
         [ Style.style Header
-            [ Style.Color.text Color.darkGrey
-            , Style.Color.background Color.white
-            , Style.Font.size 5
+            [ Style.Color.text Color.blue
             ]
         ]
 
 
-{-| Taken from the elm-css examples.
--}
-logo : Html.Styled.Html msg
-logo =
-    Html.Styled.img
-        [ Html.Styled.Attributes.src "https://yt3.ggpht.com/-MTyGz2Ak6EE/AAAAAAAAAAI/AAAAAAAAAAA/4bxyjOzC690/s900-c-k-no-mo-rj-c0xffffff/photo.jpg"
-        , Html.Styled.Attributes.css
-            [ Css.width (Css.px 200)
-            , Css.display Css.inlineBlock
-            , Css.padding (Css.px 20)
-            , Css.border3 (Css.px 5) Css.solid (Css.rgb 120 120 120)
-            , Css.hover
-                [ Css.borderColor Css.Colors.red
-                , Css.borderRadius (Css.px 10)
-                ]
+
+--ELM CSS
+
+
+elmCss : Html.Html msg
+elmCss =
+    Html.Styled.toUnstyled <|
+        Html.Styled.section []
+            [ Html.Styled.h1
+                [ Html.Styled.Attributes.css [ Css.color Css.Colors.blue ] ]
+                [ Html.Styled.fromUnstyled helloWorld ]
             ]
-        ]
-        []
