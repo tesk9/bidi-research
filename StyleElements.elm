@@ -34,7 +34,7 @@ view : List Root -> Html.Html msg
 view model =
     layout elementStyleSheet <|
         column Plain [] <|
-            [ h2 Header
+            [ h3 Header
                 []
                 --NOTE: using `html` is discouraged by the library author
                 (html helloWorld)

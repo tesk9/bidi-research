@@ -24,7 +24,7 @@ notes =
 view : List Root -> Html msg
 view model =
     div []
-        [ h2
+        [ h3
             [ style
                 [ ( "color", "blue" )
                 , ( "border", "1px solid gray" )

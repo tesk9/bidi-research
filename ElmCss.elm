@@ -36,7 +36,7 @@ view : List Root -> Html.Html msg
 view model =
     toUnstyled <|
         div []
-            [ h2
+            [ h3
                 [ css
                     [ color blue
                     , border3 (px 1) solid gray

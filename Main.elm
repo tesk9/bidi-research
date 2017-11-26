@@ -59,13 +59,22 @@ section title content notes =
             ]
         ]
         [ h1 title
-        , content
+        , h2 "Implementation Notes"
         , Markdown.toHtml [ Html.Attributes.style [ ( "width", "350px" ) ] ] notes
+        , h2 "Rendered Result"
+        , content
         ]
 
 
 h1 : String -> Html.Html msg
 h1 val =
     Html.h1
+        [ Html.Attributes.style [ ( "text-align", "center" ) ] ]
+        [ Html.text val ]
+
+
+h2 : String -> Html.Html msg
+h2 val =
+    Html.h2
         [ Html.Attributes.style [ ( "text-align", "center" ) ] ]
         [ Html.text val ]
