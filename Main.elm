@@ -1,12 +1,12 @@
 module Main exposing (..)
 
-import Accessibility as Html
+import AccessibleHtml
 import ArabicHtml exposing (helloWorld)
 import Color
 import Css
 import Css.Colors
 import Element
-import Html.Attributes
+import Html
 import Html.Styled
 import Html.Styled.Attributes
 import Style
@@ -27,27 +27,9 @@ main =
 view : a -> Html.Html msg
 view model =
     Html.div []
-        [ accessibleHtml
+        [ AccessibleHtml.view
         , styleElements
         , elmCss
-        ]
-
-
-
---ACCESSIBLE HTML
-
-
-accessibleHtml : Html.Html msg
-accessibleHtml =
-    Html.section []
-        [ Html.h1
-            [ Html.Attributes.style
-                [ ( "color", "blue" )
-                , ( "border", "1px solid gray" )
-                , ( "text-align", "center" )
-                ]
-            ]
-            [ helloWorld ]
         ]
 
 
