@@ -17,18 +17,18 @@ main =
 
 
 type alias Model =
-    {}
+    { roots : List Root.Root }
 
 
 model : Model
 model =
-    {}
+    { roots = Root.all }
 
 
 view : Model -> Html.Html msg
 view model =
     Html.div []
-        [ AccessibleHtml.view Root.all
-        , StyleElements.view Root.all
-        , ElmCss.view Root.all
+        [ AccessibleHtml.view model.roots
+        , StyleElements.view model.roots
+        , ElmCss.view model.roots
         ]
