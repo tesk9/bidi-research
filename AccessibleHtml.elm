@@ -31,7 +31,7 @@ type Root
 
 init : Flags -> Model
 init flags =
-    { roots = []
+    { roots = [ ThreeLetter 'د' 'ر' 'س' ]
     }
 
 
@@ -58,14 +58,23 @@ view model =
 
 viewRoots : List Root -> Html msg
 viewRoots roots =
-    asUnorderedList (List.map viewRoot roots)
+    asRTLUnorderedList (List.map viewRoot roots)
 
 
 viewRoot : Root -> Html msg
 viewRoot root =
-    text "Root"
+    text (dashifyRoot root)
 
 
-asUnorderedList : List (Html msg) -> Html msg
-asUnorderedList items =
-    ul [] (List.map (\item -> li [] [ item ]) items)
+asRTLUnorderedList : List (Html msg) -> Html msg
+asRTLUnorderedList items =
+    ul [ style [ ( "direction", "rtl" ) ] ]
+        (List.map (\item -> li [] [ item ]) items)
+
+
+dashifyRoot : Root -> String
+dashifyRoot root =
+    case root of
+        ThreeLetter char1 char2 char3 ->
+            --TODO: add setting for viewing left to right & right to left
+            String.fromChar char1 ++ "-" ++ String.fromChar char2 ++ "-" ++ String.fromChar char3
