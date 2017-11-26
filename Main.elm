@@ -1,10 +1,10 @@
 module Main exposing (..)
 
+import Accessibility as Html
 import ArabicHtml exposing (..)
 import Color exposing (..)
 import Element exposing (..)
 import Element.Attributes exposing (..)
-import Html
 import Style
 import Style.Color as Color
 import Style.Font as Font
