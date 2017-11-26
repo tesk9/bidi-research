@@ -3,6 +3,7 @@ module Main exposing (..)
 import AccessibleHtml
 import ElmCss
 import Html
+import Root
 import StyleElements
 
 
@@ -16,18 +17,18 @@ main =
 
 
 type alias Model =
-    { accessibleHtml : AccessibleHtml.Model }
+    {}
 
 
 model : Model
 model =
-    { accessibleHtml = AccessibleHtml.init {} }
+    {}
 
 
 view : Model -> Html.Html msg
 view model =
     Html.div []
-        [ AccessibleHtml.view model.accessibleHtml
-        , StyleElements.view
-        , ElmCss.view
+        [ AccessibleHtml.view Root.all
+        , StyleElements.view Root.all
+        , ElmCss.view Root.all
         ]

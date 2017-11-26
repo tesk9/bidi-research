@@ -1,45 +1,12 @@
-module AccessibleHtml exposing (Model, init, view)
+module AccessibleHtml exposing (view)
 
 import Accessibility exposing (..)
 import Bidi exposing (helloWorld)
 import Html.Attributes exposing (style)
+import Root exposing (Root)
 
 
--- FLAGS
-
-
-type alias Flags =
-    {}
-
-
-
--- MODEL
-
-
-type alias Model =
-    { roots : List Root
-    }
-
-
-type Root
-    = ThreeLetter Char Char Char
-
-
-
--- INIT
-
-
-init : Flags -> Model
-init flags =
-    { roots = [ ThreeLetter 'د' 'ر' 'س' ]
-    }
-
-
-
--- VIEW
-
-
-view : Model -> Html msg
+view : List Root -> Html msg
 view model =
     section []
         [ h1
@@ -51,7 +18,7 @@ view model =
             ]
             [ helloWorld ]
         , main_ []
-            [ viewRoots model.roots
+            [ viewRoots model
             ]
         ]
 
@@ -63,18 +30,10 @@ viewRoots roots =
 
 viewRoot : Root -> Html msg
 viewRoot root =
-    text (dashifyRoot root)
+    text (Root.dashify root)
 
 
 asRTLUnorderedList : List (Html msg) -> Html msg
 asRTLUnorderedList items =
     ul [ style [ ( "direction", "rtl" ) ] ]
         (List.map (\item -> li [] [ item ]) items)
-
-
-dashifyRoot : Root -> String
-dashifyRoot root =
-    case root of
-        ThreeLetter char1 char2 char3 ->
-            --TODO: add setting for viewing left to right & right to left
-            String.fromChar char1 ++ "-" ++ String.fromChar char2 ++ "-" ++ String.fromChar char3

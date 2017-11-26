@@ -8,10 +8,11 @@ import Css.Colors exposing (..)
 import Html
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css)
+import Root exposing (Root)
 
 
-view : Html.Html msg
-view =
+view : List Root -> Html.Html msg
+view model =
     toUnstyled <|
         section []
             [ h1

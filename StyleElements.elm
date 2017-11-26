@@ -4,14 +4,15 @@ import Bidi exposing (helloWorld)
 import Color
 import Element exposing (..)
 import Html
+import Root exposing (Root)
 import Style exposing (..)
 import Style.Border as Border
 import Style.Color as Color
 import Style.Font as Font
 
 
-view : Html.Html msg
-view =
+view : List Root -> Html.Html msg
+view model =
     layout elementStyleSheet <|
         h1 Header
             []
