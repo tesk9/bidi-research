@@ -16,7 +16,16 @@ import Root exposing (Root)
 
 notes : String
 notes =
-    """ """
+    (List.map (\str -> "\n - " ++ str) >> String.join "")
+        [ """I can't expose all of `Html.Styled.Attributes` and
+    `Html.Styled.Attributes` as easily as I would like,
+    since a function called `fromUnstyled` exists in both."""
+        , """`toUnstyled` doesn't result in unstyled html; it goes from
+    style-able elm-css html (`Html.Styled.Html msg`) to `Html msg`."""
+        , """elm-css is also missing [the css property `direction`](https://developer.mozilla.org/en-US/docs/Web/CSS/direction),
+    although it contains the `:dir` pseudoclass and `Html.Styled.Attributes`
+    contains the `dir` property."""
+        ]
 
 
 

@@ -11,7 +11,10 @@ import Root exposing (Root)
 
 notes : String
 notes =
-    """ """
+    (List.map (\str -> "\n - " ++ str) >> String.join "")
+        [ """This implementation is essentially identical to a elm-lang/html implementation. """
+        , """Styles are not typesafe; anything could go awry."""
+        ]
 
 
 

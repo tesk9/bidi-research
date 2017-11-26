@@ -17,7 +17,13 @@ import Style.Font as Font
 
 notes : String
 notes =
-    """ """
+    (List.map (\str -> "\n - " ++ str) >> String.join "")
+        [ """Building an accessible application is harder (note that the
+    'list' of roots is not a real list."""
+        , """Default styles are lost. Note the size of the hello world heading."""
+        , """No control over directionality while using `Element` elements."""
+        , """Layout property names using left/right, rather than start/end."""
+        ]
 
 
 

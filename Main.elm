@@ -4,6 +4,7 @@ import AccessibleHtml
 import ElmCss
 import Html
 import Html.Attributes
+import Markdown
 import Root
 import StyleElements
 
@@ -57,7 +58,10 @@ section title content notes =
             , ( "border", "2px solid black" )
             ]
         ]
-        [ h1 title, content, Html.div [] [ Html.text notes ] ]
+        [ h1 title
+        , content
+        , Markdown.toHtml [ Html.Attributes.style [ ( "width", "350px" ) ] ] notes
+        ]
 
 
 h1 : String -> Html.Html msg
