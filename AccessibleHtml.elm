@@ -1,7 +1,7 @@
 module AccessibleHtml exposing (view)
 
 import Accessibility exposing (..)
-import ArabicHtml exposing (helloWorld)
+import Bidi exposing (helloWorld)
 import Html.Attributes exposing (style)
 
 

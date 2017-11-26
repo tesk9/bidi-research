@@ -1,6 +1,6 @@
 module StyleElements exposing (view)
 
-import ArabicHtml exposing (helloWorld)
+import Bidi exposing (helloWorld)
 import Color
 import Element exposing (..)
 import Html

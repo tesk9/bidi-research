@@ -1,4 +1,4 @@
-module ArabicHtml exposing (helloWorld)
+module Bidi exposing (helloWorld)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)

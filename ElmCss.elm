@@ -2,7 +2,7 @@ module ElmCss exposing (view)
 
 -- we can only expose css from Html.Styled.Attributes due to a conflict on `fromUnstyled`
 
-import ArabicHtml exposing (helloWorld)
+import Bidi exposing (helloWorld)
 import Css exposing (..)
 import Css.Colors exposing (..)
 import Html
