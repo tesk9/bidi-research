@@ -30,8 +30,10 @@ view : Model -> Html.Html msg
 view model =
     Html.div
         [ Html.Attributes.style
-            [ ( "display", "flex" )
-            , ( "justify-content", "space-between" )
+            [ ( "min-height", "90vh" )
+            , ( "display", "flex" )
+            , ( "align-items", "stretch" )
+            , ( "justify-content", "space-around" )
             ]
         ]
         [ section "tesk9/accessible-html"
@@ -46,7 +48,12 @@ view model =
 section : String -> Html.Html msg -> Html.Html msg
 section title content =
     Html.section
-        [ Html.Attributes.style [ ( "margin", "20px" ) ] ]
+        [ Html.Attributes.style
+            [ ( "margin", "10px" )
+            , ( "padding", "10px" )
+            , ( "border", "2px solid black" )
+            ]
+        ]
         [ h1 title, content ]
 
 
