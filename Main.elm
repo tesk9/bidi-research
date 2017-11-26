@@ -6,19 +6,28 @@ import Html
 import StyleElements
 
 
-main : Program Never () msg
+main : Program Never Model msg
 main =
     Html.beginnerProgram
         { view = view
-        , update = \msg () -> ()
-        , model = ()
+        , update = \msg model -> model
+        , model = model
         }
 
 
-view : a -> Html.Html msg
+type alias Model =
+    { accessibleHtml : AccessibleHtml.Model }
+
+
+model : Model
+model =
+    { accessibleHtml = AccessibleHtml.init {} }
+
+
+view : Model -> Html.Html msg
 view model =
     Html.div []
-        [ AccessibleHtml.view
+        [ AccessibleHtml.view model.accessibleHtml
         , StyleElements.view
         , ElmCss.view
         ]
