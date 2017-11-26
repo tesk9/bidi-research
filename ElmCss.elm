@@ -14,8 +14,8 @@ import Root exposing (Root)
 view : List Root -> Html.Html msg
 view model =
     toUnstyled <|
-        section []
-            [ h1
+        div []
+            [ h2
                 [ css
                     [ color blue
                     , border3 (px 1) solid gray

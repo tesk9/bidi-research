@@ -3,6 +3,7 @@ module Main exposing (..)
 import AccessibleHtml
 import ElmCss
 import Html
+import Html.Attributes
 import Root
 import StyleElements
 
@@ -27,8 +28,30 @@ model =
 
 view : Model -> Html.Html msg
 view model =
-    Html.div []
-        [ AccessibleHtml.view model.roots
-        , StyleElements.view model.roots
-        , ElmCss.view model.roots
+    Html.div
+        [ Html.Attributes.style
+            [ ( "display", "flex" )
+            , ( "justify-content", "space-between" )
+            ]
         ]
+        [ section "tesk9/accessible-html"
+            (AccessibleHtml.view model.roots)
+        , section "mdgriffith/style-elements"
+            (StyleElements.view model.roots)
+        , section "rtfeldman/elm-css"
+            (ElmCss.view model.roots)
+        ]
+
+
+section : String -> Html.Html msg -> Html.Html msg
+section title content =
+    Html.section
+        [ Html.Attributes.style [ ( "margin", "20px" ) ] ]
+        [ h1 title, content ]
+
+
+h1 : String -> Html.Html msg
+h1 val =
+    Html.h1
+        [ Html.Attributes.style [ ( "text-align", "center" ) ] ]
+        [ Html.text val ]

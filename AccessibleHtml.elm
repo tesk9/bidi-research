@@ -8,8 +8,8 @@ import Root exposing (Root)
 
 view : List Root -> Html msg
 view model =
-    section []
-        [ h1
+    div []
+        [ h2
             [ style
                 [ ( "color", "blue" )
                 , ( "border", "1px solid gray" )
