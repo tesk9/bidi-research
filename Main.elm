@@ -33,20 +33,23 @@ view model =
             [ ( "min-height", "90vh" )
             , ( "display", "flex" )
             , ( "align-items", "stretch" )
-            , ( "justify-content", "space-around" )
+            , ( "justify-content", "space-between" )
             ]
         ]
         [ section "tesk9/accessible-html"
             (AccessibleHtml.view model.roots)
+            AccessibleHtml.notes
         , section "mdgriffith/style-elements"
             (StyleElements.view model.roots)
+            StyleElements.notes
         , section "rtfeldman/elm-css"
             (ElmCss.view model.roots)
+            ElmCss.notes
         ]
 
 
-section : String -> Html.Html msg -> Html.Html msg
-section title content =
+section : String -> Html.Html msg -> String -> Html.Html msg
+section title content notes =
     Html.section
         [ Html.Attributes.style
             [ ( "margin", "10px" )
@@ -54,7 +57,7 @@ section title content =
             , ( "border", "2px solid black" )
             ]
         ]
-        [ h1 title, content ]
+        [ h1 title, content, Html.div [] [ Html.text notes ] ]
 
 
 h1 : String -> Html.Html msg

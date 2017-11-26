@@ -1,4 +1,4 @@
-module StyleElements exposing (view)
+module StyleElements exposing (notes, view)
 
 import Bidi exposing (helloWorld)
 import Color
@@ -10,6 +10,18 @@ import Style exposing (..)
 import Style.Border as Border
 import Style.Color as Color
 import Style.Font as Font
+
+
+-- NOTES
+
+
+notes : String
+notes =
+    """ """
+
+
+
+-- VIEW
 
 
 view : List Root -> Html.Html msg

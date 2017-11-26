@@ -1,9 +1,21 @@
-module AccessibleHtml exposing (view)
+module AccessibleHtml exposing (notes, view)
 
 import Accessibility exposing (..)
 import Bidi exposing (helloWorld)
 import Html.Attributes exposing (style)
 import Root exposing (Root)
+
+
+-- NOTES
+
+
+notes : String
+notes =
+    """ """
+
+
+
+-- VIEW
 
 
 view : List Root -> Html msg

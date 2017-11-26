@@ -1,4 +1,4 @@
-module ElmCss exposing (view)
+module ElmCss exposing (notes, view)
 
 -- we can only expose css from Html.Styled.Attributes due to a conflict on `fromUnstyled`
 
@@ -9,6 +9,18 @@ import Html
 import Html.Styled exposing (..)
 import Html.Styled.Attributes exposing (css, style)
 import Root exposing (Root)
+
+
+-- NOTES
+
+
+notes : String
+notes =
+    """ """
+
+
+
+-- VIEW
 
 
 view : List Root -> Html.Html msg
