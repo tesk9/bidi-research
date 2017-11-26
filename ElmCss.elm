@@ -7,7 +7,7 @@ import Css exposing (..)
 import Css.Colors exposing (..)
 import Html
 import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (css)
+import Html.Styled.Attributes exposing (css, style)
 import Root exposing (Root)
 
 
@@ -23,4 +23,22 @@ view model =
                     ]
                 ]
                 [ fromUnstyled helloWorld ]
+            , viewRoots model
             ]
+
+
+viewRoots : List Root -> Html msg
+viewRoots roots =
+    asRTLUnorderedList (List.map viewRoot roots)
+
+
+viewRoot : Root -> Html msg
+viewRoot root =
+    text (Root.dashify root)
+
+
+asRTLUnorderedList : List (Html msg) -> Html msg
+asRTLUnorderedList items =
+    -- elm-css is missing the direction property
+    ul [ style [ ( "direction", "rtl" ) ] ]
+        (List.map (\item -> li [] [ item ]) items)
