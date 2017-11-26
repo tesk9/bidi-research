@@ -60,7 +60,10 @@ accessibleHtml =
 styleElements : Html.Html msg
 styleElements =
     Element.layout elementStyleSheet <|
-        Element.el Header [ Element.Attributes.alignLeft ] (Element.text "Hello World!")
+        Element.h1 Header
+            [ Element.Attributes.alignLeft ]
+            --NOTE: using `Element.html` is discouraged by the library author
+            (Element.html helloWorld)
 
 
 type Styles
