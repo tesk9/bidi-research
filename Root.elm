@@ -7,7 +7,10 @@ type Root
 
 all : List Root
 all =
-    [ ThreeLetter 'د' 'ر' 'س' ]
+    [ ThreeLetter 'د' 'ر' 'س'
+    , ThreeLetter 'غ' 'ر' 'ب'
+    , ThreeLetter 'ش' 'ر' 'ق'
+    ]
 
 
 dashify : Root -> String
