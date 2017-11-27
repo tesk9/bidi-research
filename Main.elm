@@ -29,23 +29,27 @@ model =
 
 view : Model -> Html.Html msg
 view model =
-    Html.div
-        [ Html.Attributes.style
-            [ ( "min-height", "90vh" )
-            , ( "display", "flex" )
-            , ( "align-items", "stretch" )
-            , ( "justify-content", "space-between" )
+    Html.main_ []
+        [ h1 "Bidirectional support"
+        , h2 "by HTML library"
+        , Html.div
+            [ Html.Attributes.style
+                [ ( "min-height", "90vh" )
+                , ( "display", "flex" )
+                , ( "align-items", "stretch" )
+                , ( "justify-content", "space-between" )
+                ]
             ]
-        ]
-        [ section "tesk9/accessible-html"
-            (AccessibleHtml.view model.roots)
-            AccessibleHtml.notes
-        , section "mdgriffith/style-elements"
-            (StyleElements.view model.roots)
-            StyleElements.notes
-        , section "rtfeldman/elm-css"
-            (ElmCss.view model.roots)
-            ElmCss.notes
+            [ section "tesk9/accessible-html"
+                (AccessibleHtml.view model.roots)
+                AccessibleHtml.notes
+            , section "mdgriffith/style-elements"
+                (StyleElements.view model.roots)
+                StyleElements.notes
+            , section "rtfeldman/elm-css"
+                (ElmCss.view model.roots)
+                ElmCss.notes
+            ]
         ]
 
 

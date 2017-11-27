@@ -32,7 +32,7 @@ view model =
                 ]
             ]
             [ helloWorld ]
-        , main_ []
+        , div []
             [ viewRoots model
             ]
         ]
